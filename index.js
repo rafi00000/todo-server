@@ -30,15 +30,14 @@ async function run() {
 
     app.get("/task", async (req, res) => {
       const email = req.query.email;
-      const status = req.query.st;
-      console.log(status);
+      console.log(email)
       let result;
       if (email) {
         result = await taskCollection.find({ email: email }).toArray();
       } else {
         result = await taskCollection.find().toArray();
       }
-      res.send(result);
+      res.send(result); 
     });
 
     app.post("/task", async (req, res) => {
